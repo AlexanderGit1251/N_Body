@@ -1,4 +1,6 @@
 import numpy as np
+import json
+import os
 
 class Sistema:
 
@@ -51,7 +53,29 @@ class Sistema:
         T_frames = T[frames]
         t_frames = t[frames]
 
-        return t_frames, R_frames, V_frames, K_frames, U_frames, T_frames, 
+        return t_frames, R_frames, V_frames, K_frames, U_frames, T_frames
+    
+    def guardar_condiciones_iniciales(self):
+
+        
+        n = len(os.listdir('condiciones_iniciales'))
+        json_file = {
+            "posiciones": self.__posiciones.tolist(),
+            "velocidades": self.__velocidades.tolist(),
+            "masas": self.__masas.tolist()
+        }
+
+        with open(f'condiciones_iniciales/condiciones_{n}.json', '+x', encoding='utf-8') as file:
+            json.dump(json_file, file, indent=4)
+
+
+
+
+
+        
+
+            
+            
 
 
             

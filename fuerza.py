@@ -20,7 +20,7 @@ class FuerzaGravitatoria(Fuerza):
         pass
 
     def fuerzas(self, posiciones, velocidades, masas):
-
+            
             R = posiciones[None, :, :] - posiciones[:, None, :]
             normas = np.linalg.norm(R, axis = 2, keepdims = True)
             np.fill_diagonal(normas[:,:,0], np.inf)     
