@@ -75,7 +75,7 @@ if __name__ == '__main__':
         tamaños = (masas - np.min(masas))/(np.max(masas) - np.min(masas)) * 10
 
 
-    sistema = Sistema(posiciones, velocidades, masas, FuerzaGravitatoria, RK4)
+    sistema = Sistema(posiciones, velocidades, masas, FuerzaGravitatoria, Verlet)
     
 
     t,R,V,K,U,T  = sistema.ejecutar(a, b, h)
